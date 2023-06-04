@@ -1,0 +1,119 @@
+\documentclass[12pt]{report}
+
+% Load packages
+\usepackage[a4paper]{geometry} % set margins
+\usepackage{subfiles} % multiple subfiles
+\usepackage[utf8]{inputenc} % unicode support
+\usepackage{amsmath,amsfonts,amssymb,amsthm,newtxmath} % maths
+\usepackage{mathtools} % maths operators
+\usepackage{faktor} % quotient rings
+\usepackage{graphicx} % graphics
+\usepackage{float} % define floating objects like tables or figures
+\usepackage{url} % url
+\usepackage{csquotes} % quotes
+\usepackage{booktabs} % table lines
+\usepackage{enumitem} % spacing of lists
+\usepackage[nottoc]{tocbibind} % add bibliography to toc
+\usepackage[backend=biber,sorting=none,style=numeric,block=ragged]{biblatex} % references, alternative: style=alphabetic
+\usepackage[linesnumbered, ruled]{algorithm2e} % algorithm package
+\usepackage{aliascnt} % alias counter package
+\usepackage[linktocpage=true, bookmarks=true, bookmarksnumbered=true, pdfpagemode=UseNone, pdfstartview={XYZ null null 1}, colorlinks=false,hidelinks]{hyperref}
+\usepackage[noabbrev,capitalize,nameinlink]{cleveref}
+\usepackage{todonotes}
+\usepackage{lipsum}
+
+% front matter environments
+
+% maths operators
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\poly}{poly}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\paren}{(}{)}
+\DeclarePairedDelimiter{\bkt}{[}{]}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclarePairedDelimiter{\innerprod}{\langle}{\rangle}
+
+% counters
+\newaliascnt{mycounter}{algocf} % let "counter" be an alias for "algocf"
+\newcommand\addtag{\refstepcounter{mycounter} \tag{\themycounter}}
+\numberwithin{equation}{mycounter} % subbordinated equations to mycounter
+\numberwithin{table}{mycounter}
+
+% algorithms
+\SetKwInput{Initialization}{Initialization}
+
+% theorems environments
+\theoremstyle{plain}
+\newtheorem{theorem}[mycounter]{Theorem}
+\newtheorem{proposition}[mycounter]{Proposition}
+\newtheorem{lemma}[mycounter]{Lemma}
+\newtheorem{corollary}[mycounter]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[mycounter]{Definition}
+\newtheorem{example}[mycounter]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{prf}{Proof}
+
+\newtheoremstyle{style1}
+	{\topsep} % Space above
+	{\topsep} % Space below
+	{} % Theorem body font % (default is "\upshape")
+	{} % Indent amount
+	{\bfseries} % Theorem head font % (default is \mdseries)
+	{.} % Punctuation after theorem head % default: no punctuation
+	{\newline} % Space after theorem head
+	{} % Theorem head spec
+\theoremstyle{style1}
+\newtheorem{construction}[mycounter]{Construction}
+
+% cref
+\creflabelformat{equation}{#2#1#3} % no parenthesis for equation environment
+
+% url
+\def\UrlBreaks{\do/\do-}
+
+% bibliography
+\addbibresource{references.bib}
+
+\title{Thesis Title}
+\author{Name}
+
+\begin{document}
+
+% frontMatter
+\pagenumbering{roman}
+\input{00frontMatter/01titlepage}
+\input{00frontMatter/02originality}
+\input{00frontMatter/03declaration}
+\input{00frontMatter/04attributions}
+\input{00frontMatter/06acknowledgements}
+\input{00frontMatter/05abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\pagenumbering{arabic}
+\chapter{Introduction}
+\input{01introduction/01aaa}
+
+\chapter{Preliminaries}
+\input{02prelim/021aaa}
+
+\chapter{Thesis Stuff}
+\input{03thesis/031aaa}
+
+\chapter{Results}
+\input{04results/041aaa}
+
+\chapter{Conclusion}
+\input{05conclusion/051aaa}
+
+\nocite{*}
+\printbibliography[title={References}, heading=bibintoc]
+
+\end{document}
