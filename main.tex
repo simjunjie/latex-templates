@@ -1,0 +1,174 @@
+\documentclass[dvipsnames,table,portrait]{tikzposter}
+
+\usepackage[utf8]{inputenc} % unicode support
+\usepackage{lmodern} % enable different font sizes
+\usepackage{stmaryrd} % more symbols
+\usepackage{amsmath,amsfonts,amssymb} % maths
+\usepackage{mathtools} % maths operators
+\usepackage{faktor} % quotient rings
+\usepackage{graphicx} % graphics
+\usepackage{float} % define floating objects like tables or figures
+\usepackage{tikz} % draw images
+\usepackage{caption} % table caption
+\usepackage{booktabs} % table lines
+\usepackage{multirow} % table cell merge
+\usepackage{multicol} % multicolumns for itemize
+\usepackage{aliascnt} % alias counter package
+\usepackage{url} % website links
+\usepackage{csquotes} % quotes
+\usepackage[linesnumbered, ruled]{algorithm2e} % algorithm package
+\usepackage[backend=biber,sorting=none,style=numeric]{biblatex} % references
+\usepackage{lipsum}
+
+% themes: Default, Rays, Basic, Simple, Envelope, Wave, Board, Autumn, and Desert
+\usetheme{Rays}
+
+% counters
+\newaliascnt{mycounter}{figure} % let "counter" be an alias for "figure"
+\makeatletter
+	\let\c@table=\c@mycounter % use mycounter for tables
+	\let\c@algocf=\c@mycounter % use mycounter for algocf
+\makeatother
+\newcommand\addtag{\refstepcounter{mycounter} \tag{\themycounter}} % use mycounter for equations
+
+% maths operators
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\poly}{poly}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\paren}{(}{)}
+\DeclarePairedDelimiter{\bkt}{[}{]}
+\DeclarePairedDelimiter{\bbkt}{\llbracket}{\rrbracket}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclarePairedDelimiter{\innerprod}{\langle}{\rangle}
+
+% tikz
+\usetikzlibrary{shapes.geometric, arrows, chains, calc}
+\tikzstyle{shape1} = [ellipse, minimum width=2em, minimum height=1em, text centered, draw=red, fill=gray!10]
+\tikzstyle{shape2} = [rectangle, minimum width=3em, minimum height=1cm, text centered, draw=blue, fill=gray!10]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{boxcell}=[draw, minimum size=2em]
+
+% algorithms
+\SetKwInOut{Initialization}{Initialization}
+
+% bibliography
+\addbibresource{references.bib}
+
+% Title, Author, Institute
+\title{Title}
+\author{Sim Jun Jie}
+\institute{
+	School of Physical \& Mathematical Sciences, Nanyang Technological University, Singapore \\
+	Institute for Infocomm Research, Agency for Science, Technology and Research (A*STAR), Singapore \\
+	\texttt{junjiesim92@gmail.com}
+}
+% \titlegraphic{LogoGraphic Inserted Here}
+
+\begin{document}
+
+% Title block with title, author, logo, etc.
+\maketitle[width = 0.95\textwidth]
+
+\node[anchor=west, yshift=3em] at (TP@title.west) {\includegraphics[width=25em]{ntulogo}};
+\node[anchor=east, yshift=3em] at (TP@title.east) {\includegraphics[width=25em]{i2rlogo}};
+
+\begin{columns}
+	%%%%%%%%%% First Column %%%%%%%%%%
+	\column{0.5}
+
+	\block[titleleft]{Figures and Tables}
+	{
+		Wrap figures and tables within a tikzfigure environment.
+
+		\begin{tikzfigure}[]
+			\captionof{table}{Table Caption}
+			\begin{tabular}{lcccc}
+				\toprule
+				& col $1$ & col $2$ & col $3$ & col  $4$ \\
+				\midrule
+				row $1$ & $(1,1)$ & $(1,2)$ & $(1,3)$ & $(1,4)$ \\
+				row $2$ & $(2,1)$ & $(2,2)$ & $(2,3)$ & $(2,4)$ \\
+				row $3$ & $(3,1)$ & $(3,2)$ & $(3,3)$ & $(3,4)$ \\
+				\bottomrule
+			\end{tabular}
+		\end{tikzfigure}
+	}
+
+	\block[titleleft]{Inner Blocks}
+	{
+		\innerblock{This is an inner block}
+		{
+			Inner blocks can be constructed like that.
+		}
+		\lipsum[1-1]
+		\vspace{0.5em}
+		\innerblock{This is another inner block}
+		{
+			Second inner block.
+		}
+		\lipsum[2-2]
+	}
+
+	%%%%%%%%%% Second Column %%%%%%%%%%
+	\column{0.5}
+
+	\block[titleleft]{Sample Block}
+	{
+		\lipsum[3-5]
+	}
+
+	\block[titleleft]{Images}
+	{
+		\begin{tikzfigure}[]
+			\captionof{figure}{Some Image}
+			\includegraphics[width=30em]{ntulogo.png}
+		\end{tikzfigure}
+	}
+
+	\block[titleleft]{References}
+	{
+		\begin{minipage}{\linewidth}
+		\nocite{*}
+		\printbibliography[heading=none]
+		\end{minipage}
+	}
+\end{columns}
+
+\end{document}
+
+% \block[titleleft]{Riemann Roch Spaces}
+% {
+% 	Let $q$ be a prime and $\mathcal{C}$ be an algebraic curve with genus $g$.
+% 	Define an algebraic function field $\mathbb{F}_q\paren*{\mathcal{C}}$ as the field extension containing all fractions of polynomials from the polynomial ring $\mathbb{F}_q\bkt*{C}$ (Adding fractions to $\mathbb{Z}$ to get the field $\mathbb{Q}$).
+
+% 	Each algebraic function field is analogous to an algebraic curve.
+% 	An equivalence class can be can be induced when considering a special map known as a valuation $\nu: \mathbb{F}_q\paren*{\mathcal{C}} \rightarrow \mathbb{Z}$.
+% 	Each equivalence class is called a place.
+% 	We can use the Hasse-Weil bound to compute the upper bound of number of places.
+% 	There is a one-to-one mapping between points on an algebraic curve and places of the function field.
+% 	A divisor is a formal sum of places.
+% 	A Riemann Roch space is a special set of polynomials defined by a divisor.
+% 	The Riemann-Roch theorem states that for a divisor $G$, $\dim\paren*{G}=\deg\paren*{G}+1-g$.
+% }
+
+% \block[titleleft]{HE Parameter Choice}
+% {
+% 	Powers-of-$2$ cyclotomics are chosen for the plaintext space $R_t$ as ring operations are faster using negacyclic FFT algorithms.
+% 	But this results in a large prime $t$.
+% 	\begin{tikzfigure}[]
+% 		\centering
+% 		\begin{tabular}{cccc}
+% 			\toprule
+% 			$n$ & prime, $t$ & max slots, $\ell$ & degree, $d$ \\
+% 			\midrule
+% 			\multirow{5}{*}{$4096$}
+% 			& $3$ & $2$ & $2048$\\
+% 			& $7$ & $4$ & $1024$ \\
+% 			& $127$ & $64$ & $64$ \\
+% 			& $12799$ & $16$ & $256$ \\
+% 			& $40961$ & $4096$ & $1$ \\
+% 			\bottomrule
+% 		\end{tabular}
+% 	\end{tikzfigure}
+% }
