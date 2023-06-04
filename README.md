@@ -10,20 +10,12 @@ git checkout <updated-branch>
 git rebase root
 ```
 
-## Article Build Sequence
-The build sequence is as follows:
-```
-pdflatex ➞ biber ➞ pdflatex ➞ pdflatex
-```
+## Build Sequence
+The various build sequence for the different class template are given below
 
-## llncs Build Sequence
-The build sequence is as follows:
-```
-pdflatex ➞ bibtex ➞ pdflatex ➞ pdflatex
-```
-
-## Beamer Build Sequence
-The build sequence is as follows:
-```
-pdflatex ➞ biber ➞ pdflatex ➞ pdflatex
-```
+| Class | Build Sequence |
+| ----------- | ----------- |
+| article | pdflatex ➞ biber ➞ pdflatex ➞ pdflatex |
+| llncs | pdflatex ➞ bibtex ➞ pdflatex ➞ pdflatex |
+| beamer | pdflatex ➞ biber ➞ pdflatex ➞ pdflatex |
+| poster | pdflatex ➞ biber ➞ pdflatex ➞ pdflatex |
