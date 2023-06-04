@@ -7,4 +7,8 @@ The build sequence is as follows:
 pdflatex ➞ biber ➞ pdflatex ➞ pdflatex
 ```
 
-This is a second line
+## llncs Build Sequence
+The build sequence is as follows:
+```
+pdflatex ➞ bibtex ➞ pdflatex ➞ pdflatex
+```
