@@ -19,3 +19,4 @@ The various build sequence for the different class template are given below
 | llncs | pdflatex ➞ bibtex ➞ pdflatex ➞ pdflatex |
 | beamer | pdflatex ➞ biber ➞ pdflatex ➞ pdflatex |
 | poster | pdflatex ➞ biber ➞ pdflatex ➞ pdflatex |
+| thesis | pdflatex ➞ biber ➞ pdflatex ➞ pdflatex |
