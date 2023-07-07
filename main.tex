@@ -44,10 +44,22 @@
 
 % counters
 \newaliascnt{mycounter}{algocf} % let "counter" be an alias for "algocf"
-\makeatletter
-	\let\c@table=\c@mycounter % use mycounter for tables
-\makeatother
-\newcommand\addtag{\refstepcounter{mycounter} \tag{\themycounter}} % use mycounter for equations
+\newcommand\addtag{\refstepcounter{mycounter} \tag{\themycounter}}
+\numberwithin{equation}{mycounter} % subordinated equations to mycounter
+
+% mycounter.figure
+% \numberwithin{table}{mycounter}
+% \numberwithin{figure}{mycounter}
+
+% mycounter, need increment before each figure
+% \renewcommand{\thetable}{\arabic{mycounter}}
+% \renewcommand{\thefigure}{\arabic{mycounter}}
+
+% section.mycounter
+% \makeatletter
+% \let\c@figure\c@mycounter
+% \let\c@table\c@mycounter
+% \makeatother
 
 % algorithms
 \SetKwInput{Initialization}{Initialization}
