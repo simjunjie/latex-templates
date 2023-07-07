@@ -8,10 +8,11 @@ Then
 ```
 git checkout <updated-branch>
 git rebase root
+git push -f
 ```
 
 ## Build Sequence
-The various build sequence for the different class template are given below
+The various build sequence for the different class templates are given below
 
 | Class | Build Sequence |
 | ----------- | ----------- |
