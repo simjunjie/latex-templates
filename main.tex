@@ -125,12 +125,12 @@ This is an abstract.
 
 \section{Math Environments}
 
-\begin{definition}
+\begin{definition}[DefinitionName]
 	This is a definition. \label{def1}
 	\[ x^n + y^n = z^n \addtag \label{eq1} \]
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}{\autocite{misc}}
 	This is a proposition. \label{prop1}
 \end{proposition}
 
@@ -140,6 +140,9 @@ This is an abstract.
 
 \begin{theorem}
 	This is a theorem. \label{theorem1}
+	\begin{proof}
+		Here is a proof of the theorem.
+	\end{proof}
 \end{theorem}
 
 \begin{algorithm}
@@ -216,11 +219,13 @@ This is an abstract.
 \section{Subfiles}
 \subfile{sections/subfile}
 
-\section{Citations}
-You can cite stuff like \cite{article} and \cite{misc}.
-Combined citations look like this \cite{book,incollection}.
+\section{Citations and References}
+You can cite stuff with autocite \autocite{article} and \autocite{misc}.
+Combined citations look like this \autocites{book,incollection}.
+To cite the author, use citeauthor \citeauthor{phdthesis}.
+The complete citation can be printed with fullcite \fullcite{mastersthesis}.
 
-Use cref for math environments.
+Use cref to refer to theorems-like environments.
 \begin{itemize}
 	\item An equation I want to cref \cref{eq1}.
 	\item A definition I want to cref \cref{def1}.
@@ -231,6 +236,8 @@ Use cref for math environments.
 	\item An example I want to cref \cref{eg1}.
 	\item A line of code I want to cref \cref{algo1} \cref{line1}.
 \end{itemize}
+
+Using nameref will print the name of the theorem-like environment \nameref{def1}.
 
 Note that autoref does not work properly.
 There is a autoref warning \enquote{No autoref name for \enquote{mycounter}} occurs.
