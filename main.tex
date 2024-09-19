@@ -1,87 +1,17 @@
-\documentclass[hyperref={pdfpagemode=UseOutlines},xcolor=dvipsnames]{beamer}
+\documentclass[hyperref={pdfpagemode=UseOutlines},xcolor=dvipsnames,notheorems]{beamer}
 \usetheme[secheader]{Madrid}
 \setbeamertemplate{caption}[numbered]
 
-\usepackage[utf8]{inputenc} % unicode support
-\usepackage{lmodern} % enable different font sizes
-\usepackage{stmaryrd} % more symbols
-\usepackage{amsmath,amsfonts,amssymb} % maths
-\usepackage{mathtools} % maths operators
-\usepackage{faktor} % quotient rings
-\usepackage{graphicx} % graphics
-\usepackage{float} % define floating objects like tables or figures
-\usepackage{tikz} % draw images
-\usepackage{booktabs} % table lines
-\usepackage{url} % website links
-\usepackage{csquotes} % quotes
-\usepackage{multirow} % multirows for tables
-\usepackage{multicol} % multicolumns for itemize
-\usepackage[backend=biber,sorting=none,style=alphabetic]{biblatex} % references
-\usepackage[linesnumbered, ruled]{algorithm2e} % algorithm package
-\usepackage{aliascnt} % alias counter package
+\input{preamble/packages}
+\input{preamble/styling}
+\input{preamble/operators}
+\input{preamble/macros}
+\input{preamble/counter}
+\input{preamble/theorems_algorithms}
+\input{preamble/tikz}
+\input{preamble/beamer}
 
-% macros
-\setbeamertemplate{itemize subitem}[triangle]
-% \newcommand{\<command>}[<parameters>]{<formula>}
-
-% maths operators
-\DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\poly}{poly}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
-\DeclarePairedDelimiter{\paren}{(}{)}
-\DeclarePairedDelimiter{\bkt}{[}{]}
-\DeclarePairedDelimiter{\set}{\{}{\}}
-\DeclarePairedDelimiter{\innerprod}{\langle}{\rangle}
-
-% counters
-\newcounter{savenumi}
-\newcommand{\seti}{\setcounter{savenumi}{\value{enumi}}}
-\newcommand{\conti}{\setcounter{enumi}{\value{savenumi}}}
-\newaliascnt{mycounter}{figure} % let "counter" be an alias for "figure"
-\makeatletter
-	\let\c@table=\c@mycounter % use mycounter for tables
-	\let\c@algocf=\c@mycounter % use mycounter for algocf
-\makeatother
-\newcommand\addtag{\refstepcounter{mycounter} \tag{\themycounter}} % use mycounter for equations
-
-% algorithms
-\SetKwInOut{Initialization}{Initialization}
-
-% url
-\def\UrlBreaks{\do/\do-}
-
-% bibliography
 \addbibresource{references.bib}
-
-% title page before section
-\AtBeginSection[]
-{
-	\begin{frame}
-		\vfill
-		\centering
-		\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-			\usebeamerfont{title} Section~\thesection:~\secname
-		\end{beamercolorbox}
-		\vfill
-	\end{frame}
-}
-
-\AtBeginSubsection[]
-{
-	\begin{frame}
-		\tableofcontents[sections=\thesection,currentsubsection]
-	\end{frame}
-}
-
-% tikz
-\usetikzlibrary{shapes.geometric, arrows}
-\tikzstyle{arrow} = [thick,->,>=stealth]
-\tikzstyle{bluerect} = [rectangle, minimum width=3em, minimum height=2em, text centered, draw=black, fill=Cerulean]
-\tikzstyle{yellowrect} = [rectangle, minimum width=3em, minimum height=2em, text centered, draw=black, fill=Goldenrod]
-\tikzstyle{greenrect} = [rectangle, minimum width=3em, minimum height=2em, text centered, draw=black, fill=ForestGreen]
-\tikzstyle{purplerect} = [rectangle, minimum width=3em, minimum height=2em, text centered, draw=black, fill=Orchid]
 
 \title{Beamer Template}
 \author{Sim Jun Jie}

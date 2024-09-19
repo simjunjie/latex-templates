@@ -1,0 +1,17 @@
+\AtBeginSection[]
+{
+	\begin{frame}
+		\vfill
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+			\usebeamerfont{title} Section~\thesection:~\secname
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
+\AtBeginSubsection[]
+{
+	\begin{frame}
+		\tableofcontents[sections=\thesection,currentsubsection]
+	\end{frame}
+}
