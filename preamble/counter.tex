@@ -2,6 +2,10 @@
 \newaliascnt{mycounter}{algocf} % let "counter" be an alias for "algocf"
 \newcommand\addtag{\refstepcounter{mycounter} \tag{\themycounter}}
 \numberwithin{equation}{mycounter} % subordinated equations to mycounter
+\makeatletter
+	\let\c@table=\c@mycounter % use mycounter for tables
+	\let\c@figure=\c@mycounter % use mycounter for figure
+\makeatother
 
 % mycounter.figure
 % \numberwithin{table}{mycounter}
