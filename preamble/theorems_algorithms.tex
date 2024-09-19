@@ -1,0 +1,29 @@
+% theorems environments
+\theoremstyle{plain}
+\newtheorem{theorem}[mycounter]{Theorem}
+\newtheorem{proposition}[mycounter]{Proposition}
+\newtheorem{lemma}[mycounter]{Lemma}
+\newtheorem{corollary}[mycounter]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[mycounter]{Definition}
+\newtheorem{example}[mycounter]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{prf}{Proof}
+
+\newtheoremstyle{style1}
+	{\topsep} % Space above
+	{\topsep} % Space below
+	{} % Theorem body font % (default is "\upshape")
+	{} % Indent amount
+	{\bfseries} % Theorem head font % (default is \mdseries)
+	{.} % Punctuation after theorem head % default: no punctuation
+	{\newline} % Space after theorem head
+	{} % Theorem head spec
+\theoremstyle{style1}
+\newtheorem{construction}[mycounter]{Construction}
+
+% algorithms
+\SetKwInput{Initialization}{Initialization}
