@@ -1,5 +1,18 @@
+% metropolis
+% - footer: https://tex.stackexchange.com/questions/416445/how-to-configure-frame-footer-in-metropolis-theme
+% - secheader: https://tex.stackexchange.com/questions/686725/customization-of-sections-and-subsections-in-a-metropolis-beamer-presentation
+
+% awesomebeamer
+% git add submodule https://github.com/LukasPietzschmann/smile.git
+% git add submodule https://github.com/LukasPietzschmann/awesomebeamer.git
+% \makeatletter
+% \appto\input@path{{../libs/awesome-beamer}, {../libs/smile}}
+% \makeatother
+% \usetheme[english, color, coloraccent=dred, secslide, listings, footnote]{awesome}
+
 \documentclass[hyperref={pdfpagemode=UseOutlines},xcolor=dvipsnames,notheorems]{beamer}
 \usetheme[secheader]{Madrid}
+% \usetheme{moloch}
 \setbeamertemplate{caption}[numbered]
 
 \input{preamble/packages}
